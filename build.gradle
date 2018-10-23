@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        springBootVersion = '2.1.0.M2'
+        springBootVersion = '2.1.0.RC1'
     }
     repositories {
         jcenter()
@@ -24,6 +24,7 @@ plugins {
     id 'io.spring.dependency-management' version '1.0.6.RELEASE'
 }
 
+apply plugin: 'application'
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'maven'
@@ -35,21 +36,24 @@ apply plugin: "com.github.ManifestClasspath"
 apply plugin: 'com.github.ben-manes.versions'
 apply plugin: 'org.junit.platform.gradle.plugin'
 
-group = 'ru.steklopod'
-version = '1.0'
-archivesBaseName = 'Cassandra example'
+jar {
+    baseName = 'Cassandra example'
+    version = '0.1.0'
+}
 
 sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
 ext {
     assertJVersion = '3.11.1'
     junitJupiterVersion = '5.3.1'
     junitPlatformVersion = '1.3.1'
     junitVintageVersion = '5.1.0'
     lombokVersion = '1.18.2'
-    springBootVersion = '2.1.0.M2'
+    springBootVersion = '2.1.0.RC1'
     JUNIT_VERSION = '4.12'
+    SPARK_VERSION = '2.11:2.3.2'
 }
-ext['spring.version'] = '5.0.4.RELEASE'
 
 repositories {
     mavenCentral()
@@ -61,12 +65,15 @@ repositories {
 }
 
 dependencies {
-    compile 'com.datastax.cassandra:cassandra-driver-core:3.6.0'
-    compile 'com.datastax.spark:spark-cassandra-connector-java_2.11:1.6.0-M1'
+    compile('ch.qos.logback:logback-classic:1.2.3') {
+        exclude group: 'org.slf4j', module: 'slf4j-api' 
+    }
 
-    compile 'org.apache.spark:spark-core_2.11:2.3.2'
-    compile 'org.apache.spark:spark-sql_2.11:2.3.2'
-    compile 'org.apache.spark:spark-streaming_2.11:2.3.2'
+    compile 'com.datastax.cassandra:cassandra-driver-core:3.6.0'
+    compile("org.apache.spark:spark-core_${SPARK_VERSION}",
+            "org.apache.spark:spark-sql_${SPARK_VERSION}",
+            "org.apache.spark:spark-streaming_${SPARK_VERSION}",
+            "com.datastax.spark:spark-cassandra-connector_${SPARK_VERSION}")
 
     compile("org.springframework.boot:spring-boot-starter",
             "org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}",
@@ -80,7 +87,6 @@ dependencies {
             "org.apache.commons:commons-lang3:3.8.1",
             "org.apache.commons:commons-io:1.3.2"
     )
-
 
     compileOnly("org.springframework.boot:spring-boot-configuration-processor")
     runtime("org.springframework.boot:spring-boot-devtools")
