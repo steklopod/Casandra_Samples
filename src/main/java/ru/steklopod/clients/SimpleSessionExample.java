@@ -11,7 +11,7 @@ public class SimpleSessionExample {
 	public static void main(String[] args) {
 		
 		Cluster cluster = Cluster.builder().withoutMetrics().addContactPoint("127.0.0.1")
-				//.withCredentials("jeff", "i6XJsj!k#9")
+				//.withCredentials("Dima", "i6XJsj!k#9")
 				.build();
 		
 		Session session = cluster.connect();

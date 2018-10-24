@@ -1,5 +1,3 @@
-
-
 package ru.steklopod.clients;
 
 import com.datastax.driver.core.Cluster;
@@ -10,7 +8,7 @@ public class SimpleSchemaExample {
 	public static void main(String[] args) {
 
 		Cluster cluster = Cluster.builder().withoutMetrics().addContactPoint("127.0.0.1")
-				//.withCredentials("jeff", "i6XJsj!k#9")
+				//.withCredentials("Dima", "i6XJsj!k#9")
 				.build();
 
 		cluster.init();
