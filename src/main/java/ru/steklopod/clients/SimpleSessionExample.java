@@ -10,7 +10,7 @@ public class SimpleSessionExample {
 
 	public static void main(String[] args) {
 		
-		Cluster cluster = Cluster.builder().addContactPoint("127.0.0.1")
+		Cluster cluster = Cluster.builder().withoutMetrics().addContactPoint("127.0.0.1")
 				//.withCredentials("jeff", "i6XJsj!k#9")
 				.build();
 		

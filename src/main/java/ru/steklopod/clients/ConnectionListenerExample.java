@@ -56,7 +56,7 @@ public class ConnectionListenerExample implements Host.StateListener {
 		
 		List<Host.StateListener> list = new ArrayList<Host.StateListener>();
 		list.add(new ConnectionListenerExample());
-		Cluster cluster = Cluster.builder().addContactPoint("127.0.0.1")
+		Cluster cluster = Cluster.builder().withoutMetrics().addContactPoint("127.0.0.1")
 				//.withCredentials("jeff", "i6XJsj!k#9")
 				.withInitialListeners(list)
 				.build();

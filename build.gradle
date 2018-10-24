@@ -66,6 +66,7 @@ repositories {
 
 dependencies {
     compile 'com.datastax.cassandra:cassandra-driver-core:3.6.0'
+   
     compile("org.apache.spark:spark-core_${SPARK_VERSION}",
             "org.apache.spark:spark-sql_${SPARK_VERSION}",
             "org.apache.spark:spark-streaming_${SPARK_VERSION}",
