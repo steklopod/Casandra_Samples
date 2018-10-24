@@ -10,15 +10,23 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import java.time.DayOfWeek;
+import java.time.format.TextStyle;
+import java.util.Locale;
+
 @Slf4j
 @SpringBootTest
 @RunWith(JUnitPlatform.class)
 @ExtendWith({MockitoExtension.class, SpringExtension.class, RandomBeansExtension.class})
-class Summary {
+class InitTest {
 
     @Test
-     void getAccount(){
-        System.err.println("Some");
+     void init(){
+        DayOfWeek dow = DayOfWeek.MONDAY;
+        Locale locale = Locale.getDefault();
+        System.out.println(dow.getDisplayName(TextStyle.FULL, locale));
+        System.out.println(dow.getDisplayName(TextStyle.NARROW, locale));
+        System.out.println(dow.getDisplayName(TextStyle.SHORT, locale));
 
     }
 }

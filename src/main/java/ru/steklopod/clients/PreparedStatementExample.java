@@ -1,5 +1,3 @@
-
-
 package ru.steklopod.clients;
 
 import com.datastax.driver.core.*;

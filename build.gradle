@@ -53,6 +53,7 @@ ext {
     springBootVersion = '2.1.0.RC1'
     JUNIT_VERSION = '4.12'
     SPARK_VERSION = '2.11:2.3.2'
+    cassandra_driver = "3.6.0"
 }
 
 repositories {
@@ -65,8 +66,9 @@ repositories {
 }
 
 dependencies {
-    compile 'com.datastax.cassandra:cassandra-driver-core:3.6.0'
-   
+    compile("com.datastax.cassandra:cassandra-driver-core:${cassandra_driver}",
+            "com.datastax.cassandra:cassandra-driver-mapping:${cassandra_driver}")
+
     compile("org.apache.spark:spark-core_${SPARK_VERSION}",
             "org.apache.spark:spark-sql_${SPARK_VERSION}",
             "org.apache.spark:spark-streaming_${SPARK_VERSION}",

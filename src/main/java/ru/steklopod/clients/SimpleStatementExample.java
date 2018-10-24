@@ -18,12 +18,12 @@ public class SimpleStatementExample {
 		Session session = cluster.connect("hotel");
 		
 		// create a Hotel ID
-		String is = "AZ123";
+		String id = "AZ123";
 		
 		// create parameterized INSERT statement
 		SimpleStatement hotelInsert = new SimpleStatement(
 				"INSERT INTO hotels (id, name, phone) VALUES (?, ?, ?)",
-				is, "Super Hotel at WestWorld", "1-888-999-9999");
+				id, "Super Hotel at WestWorld", "1-888-999-9999");
 		
 		ResultSet hotelInsertResult = session.execute(hotelInsert);
 		
@@ -34,7 +34,7 @@ public class SimpleStatementExample {
 		
 		// create parameterized SELECT statement
 		SimpleStatement hotelSelect = new SimpleStatement(
-				"SELECT * FROM hotels WHERE id=?", is);
+				"SELECT * FROM hotels WHERE id=?", id);
 		hotelSelect.enableTracing();
 		
 		

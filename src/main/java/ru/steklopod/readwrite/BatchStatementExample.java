@@ -26,7 +26,7 @@ public class BatchStatementExample {
 				"INSERT INTO hotels (id, name, phone) VALUES (?, ?, ?)",
 				id, "Super Hotel at WestWorld", "1-888-999-9999");
 		SimpleStatement hotelsByPoiInsert = new SimpleStatement(
-				"INSERT INTO hotels_by_poi (poi_name, id, name, phone) VALUES (?, ?, ?, ?)",
+				"INSERT INTO hotels_by_poi (poi_name, hotel_id, name, phone) VALUES (?, ?, ?, ?)",
 				"WestWorld", id, "Super Hotel at WestWorld", "1-888-999-9999");
 		
 		BatchStatement hotelBatch = new BatchStatement();
