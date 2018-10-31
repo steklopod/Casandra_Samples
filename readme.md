@@ -2,7 +2,7 @@
 Этот репозиторий предоставляет образцы исходного кода и примечания для книги O'Reilly
 [Кассандра: окончательное руководство(Cassandra: The Definitive Guide, 2nd Edition)](http://shop.oreilly.com/product/0636920043041.do).
 
-![Book Cover](docs/cassandra-tdg.jpg)
+![Book Cover](docs/cassandra-tdg.png)
 
 Примеры доступны для следующих глав:
 
